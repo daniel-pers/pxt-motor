@@ -233,7 +233,7 @@ namespace motor {
      * S1~S8.
      * 0°~180°.
 	*/
-    //% blockId=motor_servo block="Servo (fork)|%index|degree|%degree"
+    //% blockId=motor_servo block="Servo|%index|degree|%degree"
     //% weight=100
     //% degree.min=0 degree.max=180
     //% index.fieldEditor="gridpicker" index.fieldOptions.columns=4
@@ -242,7 +242,7 @@ namespace motor {
             initPCA9685()
         }
         // 100hz
-        let v_us = (degree * 10 + 600) // 0.6ms ~ 2.4ms
+        let v_us = (degree * 9 + 600) // 0.6ms ~ 2.4ms
         let value = (v_us * 4095 / (1000000 / 100))/2
         setPwm(index + 7, 0, value)
     }
